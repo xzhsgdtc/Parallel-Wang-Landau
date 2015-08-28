@@ -1,0 +1,92 @@
+### This file contains the information of Wang-Landau sampling.
+### Which should contain the parameters of Wang-Landau method,
+### as well as model and histogram informations.
+
+***********************************************************
+*                                                         *
+*               WANG-LANDAU INFORMATION                   *
+*                                                         *
+***********************************************************
+                         MyID                    0
+                   RandomSeed              7055726
+            FlatnessCriterion                  0.8
+           ModificationFactor                    1
+          ModificationDivider                    2
+        ModificationThreshold                1e-08
+       His. Checking Interval             10000000
+              Output Interval                 1000
+     Replica Exchange Interval             1000000
+      Complete Check Interval             50000000
+              Backup Interval             10000000
+             Current MC Moves                    0
+               Total MC Moves                    0
+
+                   Dimension 0 : 
+                   Min. Limits               -5000
+                   Max. Limits               -3600
+                Histogram Size                 280
+                   Dimension 1 : 
+                   Min. Limits                  50
+                   Max. Limits                 126
+                Histogram Size                  75
+
+***********************************************************
+*                                                         *
+*                    MODEL INFORMATION                    *
+*                                                         *
+***********************************************************
+Model Dimension               3                   
+Density                       0.8                 
+Initialization Type           1                   
+No. Monomers, Lipids          1000            95             
+No. Cells, Cells Per Line     64              4              
+Length Box, Cell (Min.)       10.7722         2.69304         ( 2.227    )
+Max. Move Distance            0.089               
+Observables                   2     : -4539.06        95             
+Max. Min. Energy              -3600           -5000          
+Max. Min. No. Lipids          126             50             
+Move Fraction                 0.999           1              
+Largest Cutoff                2.22725        
+
+****************************
+*    L-J Potential Info    *
+****************************
+LJ_cutoff 2.22725     2.22725     2.22725 
+LJ_cutoff 2.22725     2.22725     2.22725 
+LJ_cutoff 2.22725     2.22725     2.22725 
+
+LJ_sigma 0.890899     0.890899     0.890899 
+LJ_sigma 0.890899     0.890899     0.890899 
+LJ_sigma 0.890899     0.890899     0.890899 
+
+LJ_epsilon 1     1     1 
+LJ_epsilon 1     1     1 
+LJ_epsilon 1     1     1 
+
+****************************
+*   FENE Potential Info    *
+****************************
+FENE_K 40                  
+FENE_R 0.3                 
+FENE_ro 1                   
+
+****************************
+*    RSC Potential Info    *
+****************************
+RSC_Epsilon 1                   
+RSC_Sigma 0.935444            
+RSC_Cutoff 2.22725             
+
+
+############################
+Statistics: 
+Move Type           Total               Accepted            Rejected
+           RandomMove          0                   0                   0                   
+ (ratio)            -nan                -nan                -nan                
+RandomShiftMove     0                   0                   0                   
+ (ratio)            -nan                -nan                -nan                
+InsertionMove       0                   0                   0                   
+ (ratio)            -nan                -nan                -nan                
+DeletionMove        0                   0                   0                   
+ (ratio)            -nan                -nan                -nan                
+

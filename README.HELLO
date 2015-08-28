@@ -1,0 +1,33 @@
+########################################################
+#
+# THIS PROGRAM CAN ONLY BE USED BY AUTHORIZED USERS, 
+# DO NOT SPREAD WITHOUT AUTHORIZATION !!!
+# 
+#   AUTHOR: Jerry Shi
+#   DATE: 12/24/2013
+#
+########################################################
+
+# Pre-requirement:
+    1. OpenMPI or other MPI environment
+    2. gcc/g++ compiler
+    3. doxygen (optional)
+
+# Folder description:
+    1. include  contains all the files with .h suffix. Those files are either header files or template files
+    2. src      contains all source files
+    3. input    contains all input files
+    4. record   contains all intermidiate and final result files
+    5. log      contains information about each process, in case of monitoring the behavior of each process
+    6. doc      contains all the documentation of programs (documentation files have been generated already, however, if you want to regenerate it, please install doxygen)
+    7. script   contains submit scripts, data processing scripts
+
+# Make file description
+    command     function
+    make        compile whole code
+    make clean  clean every compiled code
+    make doc    generate documentation through doxygen
+    make run1D  for testing purpose, note: need to run with appropriate input files
+    make run2D  for testing purpose, note: need to run with appropriate input files
+    make web    will open the webpage of documentation (need to have xdg-open command, otherwise, open the doc/html/index.html file)
+

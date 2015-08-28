@@ -1,0 +1,260 @@
+
+# Parallel Frame for Wang-Landau sampling ... 
+  >> processing input parameters ... 
+     -> input file: wang_landau.input
+     -> dimension of DOS: 1
+     -> windows each dimension: 1  
+     -> overlap each dimension: 1  
+     -> number of processes: 1
+     -> number of wins: 1
+     -> number of proc. per win.: 1
+     -> current procees id: 0
+     -> current win. coords.: 0 
+     -> number of inter win. comm.: 0  (0)
+  >> finish sucessfully! 
+  >> building communicators ... 
+     -> intra wins. comms. ... 
+        * color of intra win. comm.: 0
+     -> inter wins. comms. ... 
+        * my id at interWinComm   -1:     -1
+        * my id at interWinComm   -1:     -1
+  >> finish successfully!
+
+# Wang-Landau Simulation Normal Start: 
+  >> initialize random number generator ... 
+     * random seed:    7055726
+  >> build up histogram ... 
+     => start building histogram object ! 
+        -> total number of bins: 21000
+        -> histogram dimension: 2
+        -> bins each dim: 280  75  
+        -> weights each dim: 1  280  
+        -> min. each dim: -5000  50  
+        -> max. each dim: -3600  126  
+        -> step each dim: 5  1  
+     => build Histogam sucessfully ! 
+  >> configuration print flag is OFF !
+  >> initialize model ... 
+     => start Iniliazation of Lipid Model ... 
+       -> pre-calculating potential parameters ... 
+       -> building cells ... 
+          * length of simulation box: 10.7722
+          * length of cell: 2.69304
+          * number of cells: 64
+          * number of cells per line: 4
+       -> adding monomers ... 
+          * monomers per line 10
+       -> read from file ends
+          * Energy From File:  -4539.07
+          * Energy Calculated: -4539.06
+          * file name: P0000000_InitConf.mol2
+          * number of monomers: 1000
+          * number of lipids: 95
+       -> check model integrity ... 
+       -> do observables measurement ... 
+          * initial observables: 	-4539.06	95	
+     => initialize LipidModel sucessfully !
+  >> modifying model to fit constraints ... 
+          * finish modifying, observables:    -4539.055206       95 
+  >> finish initialization !
+      ->  register PACKAGE for MPI... 
+          * No. of MPI_LONG: 2002
+          * No. of MPI_Double: 3001
+
+# Parallel Frame for Wang-Landau sampling ... 
+  >> processing input parameters ... 
+     -> input file: wang_landau.input
+     -> dimension of DOS: 1
+     -> windows each dimension: 1  
+     -> overlap each dimension: 1  
+     -> number of processes: 1
+     -> number of wins: 1
+     -> number of proc. per win.: 1
+     -> current procees id: 0
+     -> current win. coords.: 0 
+     -> number of inter win. comm.: 0  (0)
+  >> finish sucessfully! 
+  >> building communicators ... 
+     -> intra wins. comms. ... 
+        * color of intra win. comm.: 0
+     -> inter wins. comms. ... 
+        * my id at interWinComm   -1:     -1
+        * my id at interWinComm   -1:     -1
+  >> finish successfully!
+
+# Wang-Landau Simulation Normal Start: 
+  >> initialize random number generator ... 
+     * random seed:    7055726
+  >> build up histogram ... 
+     => start building histogram object ! 
+        -> total number of bins: 21000
+        -> histogram dimension: 2
+        -> bins each dim: 280  75  
+        -> weights each dim: 1  280  
+        -> min. each dim: -5000  50  
+        -> max. each dim: -3600  126  
+        -> step each dim: 5  1  
+     => build Histogam sucessfully ! 
+  >> configuration print flag is OFF !
+  >> initialize model ... 
+     => start Iniliazation of Lipid Model ... 
+       -> pre-calculating potential parameters ... 
+       -> building cells ... 
+          * length of simulation box: 10.7722
+          * length of cell: 2.69304
+          * number of cells: 64
+          * number of cells per line: 4
+       -> adding monomers ... 
+          * monomers per line 10
+       -> read from file ends
+          * Energy From File:  -4539.07
+          * Energy Calculated: -4539.06
+          * file name: P0000000_InitConf.mol2
+          * number of monomers: 1000
+          * number of lipids: 95
+       -> check model integrity ... 
+       -> do observables measurement ... 
+          * initial observables: 	-4539.06	95	
+     => initialize LipidModel sucessfully !
+  >> modifying model to fit constraints ... 
+          * finish modifying, observables:    -4539.055206       95 
+  >> finish initialization !
+      ->  register PACKAGE for MPI... 
+          * No. of MPI_LONG: 2002
+          * No. of MPI_Double: 3001
+
+# Parallel Frame for Wang-Landau sampling ... 
+  >> processing input parameters ... 
+     -> input file: wang_landau.input
+     -> dimension of DOS: 1
+     -> windows each dimension: 1  
+     -> overlap each dimension: 1  
+     -> number of processes: 1
+     -> number of wins: 1
+     -> number of proc. per win.: 1
+     -> current procees id: 0
+     -> current win. coords.: 0 
+     -> number of inter win. comm.: 0  (0)
+  >> finish sucessfully! 
+  >> building communicators ... 
+     -> intra wins. comms. ... 
+        * color of intra win. comm.: 0
+     -> inter wins. comms. ... 
+        * my id at interWinComm   -1:     -1
+        * my id at interWinComm   -1:     -1
+  >> finish successfully!
+
+# Wang-Landau Simulation Normal Start: 
+  >> initialize random number generator ... 
+     * random seed:    7055726
+  >> build up histogram ... 
+     => start building histogram object ! 
+        -> total number of bins: 21000
+        -> histogram dimension: 2
+        -> bins each dim: 280  75  
+        -> weights each dim: 1  280  
+        -> min. each dim: -5000  50  
+        -> max. each dim: -3600  126  
+        -> step each dim: 5  1  
+     => build Histogam sucessfully ! 
+  >> configuration print flag is OFF !
+  >> initialize model ... 
+     => start Iniliazation of Lipid Model ... 
+       -> pre-calculating potential parameters ... 
+       -> building cells ... 
+          * length of simulation box: 10.7722
+          * length of cell: 2.69304
+          * number of cells: 64
+          * number of cells per line: 4
+       -> adding monomers ... 
+          * monomers per line 10
+       -> read from file ends
+          * Energy From File:  -4539.07
+          * Energy Calculated: -4539.06
+          * file name: P0000000_InitConf.mol2
+          * number of monomers: 1000
+          * number of lipids: 95
+       -> check model integrity ... 
+       -> do observables measurement ... 
+          * initial observables: 	-4539.06	95	
+     => initialize LipidModel sucessfully !
+  >> modifying model to fit constraints ... 
+          * finish modifying, observables:    -4539.055206       95 
+  >> finish initialization !
+      ->  register PACKAGE for MPI... 
+          * No. of MPI_LONG: 2002
+          * No. of MPI_Double: 3001
+
+# Parallel Frame for Wang-Landau sampling ... 
+  >> processing input parameters ... 
+     -> input file: wang_landau.input
+     -> dimension of DOS: 1
+     -> windows each dimension: 1  
+     -> overlap each dimension: 1  
+     -> number of processes: 1
+     -> number of wins: 1
+     -> number of proc. per win.: 1
+     -> current procees id: 0
+     -> current win. coords.: 0 
+     -> number of inter win. comm.: 0  (0)
+  >> finish sucessfully! 
+  >> building communicators ... 
+     -> intra wins. comms. ... 
+        * color of intra win. comm.: 0
+     -> inter wins. comms. ... 
+        * my id at interWinComm   -1:     -1
+        * my id at interWinComm   -1:     -1
+  >> finish successfully!
+
+# Wang-Landau Simulation Normal Start: 
+  >> initialize random number generator ... 
+     * random seed:    7055726
+  >> build up histogram ... 
+     => start building histogram object ! 
+        -> total number of bins: 21000
+        -> histogram dimension: 2
+        -> bins each dim: 280  75  
+        -> weights each dim: 1  280  
+        -> min. each dim: -5000  50  
+        -> max. each dim: -3600  126  
+        -> step each dim: 5  1  
+     => build Histogam sucessfully ! 
+  >> configuration print flag is OFF !
+  >> initialize model ... 
+     => start Iniliazation of Lipid Model ... 
+       -> pre-calculating potential parameters ... 
+       -> building cells ... 
+          * length of simulation box: 10.7722
+          * length of cell: 2.69304
+          * number of cells: 64
+          * number of cells per line: 4
+       -> adding monomers ... 
+          * monomers per line 10
+       -> read from file ends
+          * Energy From File:  -4539.07
+          * Energy Calculated: -4539.06
+          * file name: P0000000_InitConf.mol2
+          * number of monomers: 1000
+          * number of lipids: 95
+       -> check model integrity ... 
+       -> do observables measurement ... 
+          * initial observables: 	-4539.06	95	
+     => initialize LipidModel sucessfully !
+  >> modifying model to fit constraints ... 
+          * finish modifying, observables:    -4539.055206       95 
+  >> finish initialization !
+      ->  register PACKAGE for MPI... 
+          * No. of MPI_LONG: 2002
+          * No. of MPI_Double: 3001
+
+# Parallel Frame for Wang-Landau sampling ... 
+  >> processing input parameters ... 
+
+# Parallel Frame for Wang-Landau sampling ... 
+  >> processing input parameters ... 
+
+# Parallel Frame for Wang-Landau sampling ... 
+  >> processing input parameters ... 
+
+# Parallel Frame for Wang-Landau sampling ... 
+  >> processing input parameters ... 
