@@ -44,7 +44,8 @@ enum TrialMoveType{
     DELETIONMOVE,
     NONEMOVE, 
     RANDOMSHIFTMOVE,
-    REPTATIONMOVE
+    REPTATIONMOVE,
+    CHANGEVOLUMEMOVE
 };
 
 const double DOUBLE_TOLERANCE = 1e-7;   // tolerance for double equaling
@@ -312,6 +313,8 @@ private:
     long** mBonds;                  // array that record information of bonds
     long** mCellID2Coord;           // map cell index to cartesian coordinates
     long*** mCoord2CellID;          // map coordiate of a cell to its cell id
+
+    double mvolumeMoveRate;         //The percentage of volume change
 
     MathVector<double>** mCellCornerCoord;      // coordinates of lowest corner of cells  
                                                 //          -------- 

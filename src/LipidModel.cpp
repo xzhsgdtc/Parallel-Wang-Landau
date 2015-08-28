@@ -31,6 +31,8 @@ LipidModel::LipidModel(){
     mMoveFraction[0] = 1;
     mMoveFraction[1] = 1;
     mMoveFraction[2] = 1;
+    mvolumeMoveRate = 0.01;
+
     for(int i=0; i<NUMBEROFSTATS; ++i){
         stat[i] = 0;
     }
@@ -1671,6 +1673,11 @@ void LipidModel::doMCMove(){
         updateTrialMoveDistance(mMovedBinIndex);
     } 
     
+    if ( mRandom->nextDouble() < 0.001){
+        mMoveProposal = CHANGEVOLUMEMOVE;
+
+
+    }
     double p = mRandom->nextDouble() ;
     if (p < mMoveFraction[0]){
         
@@ -2002,8 +2009,7 @@ void LipidModel::doChangeVolumeMove(){
     long index = 1 ;
     //  1. Generate a random number to decide how much we need to change the volume(-1,1).
     //  If larger than 0, the system expand, if less than 0 the system shrink
-    double moveRate = 0.01;
-    double volumeChangeRate = mRandom->nextDouble(-1,1)*moveRate;
+    double volumeChangeRate = mRandom->nextDouble(-1,1)*mvolumeMoveRate;
     for(long i = 0, i < mNumberOfLipids){
 
         long l[3] =  {-1,-1,-1};
@@ -2018,7 +2024,7 @@ void LipidModel::doChangeVolumeMove(){
         }
     // 2.For every lipid calculate the new position based on second monomver's xyz 
 
-        for(long i=0; i< mDim; ++i){
+        for(long j=0; j< mDim; ++j){
             mChangeOfCoord[i] = mMonomers[l[1]].mCoord * volumeChangeRate ;
         }   
 
@@ -2133,6 +2139,11 @@ double LipidModel::cFactor() {
 
         case REPTATIONMOVE:
             ratio = mReptationCFactor;
+            break;
+
+
+        case CHANGEVOLUMEMOVE:
+            ratio = pow( 1+mvolumeMoveRate, mNumberOfMonomers);
             break;
         default:
             errorMsg("cFacotr()", "invalid move type!");
