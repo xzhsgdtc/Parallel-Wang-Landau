@@ -1,7 +1,6 @@
 #include "LipidModel.h"
 
 
-
 LipidModel::LipidModel(){
     setOutput(std::cout);
     mCells              = NULL;
@@ -2002,15 +2001,13 @@ void LipidModel::undoRandomShiftMove(){
     mEnergy = mPrevEnergy;
 }
 
-
-
 //Perform Volume move, change the system's volume
 void LipidModel::doChangeVolumeMove(){
     long index = 1 ;
     //  1. Generate a random number to decide how much we need to change the volume(-1,1).
     //  If larger than 0, the system expand, if less than 0 the system shrink
     double volumeChangeRate = mRandom->nextDouble(-1,1)*mvolumeMoveRate;
-    for(long i = 0, i < mNumberOfLipids){
+    for(long i = 0; i < mNumberOfLipids; ++i){
 
         long l[3] =  {-1,-1,-1};
         index = 3*i;
@@ -2025,7 +2022,7 @@ void LipidModel::doChangeVolumeMove(){
     // 2.For every lipid calculate the new position based on second monomver's xyz 
 
         for(long j=0; j< mDim; ++j){
-            mChangeOfCoord[i] = mMonomers[l[1]].mCoord * volumeChangeRate ;
+            mChangeOfCoord[j] = mMonomers[l[1]].mCoord->get(j) * volumeChangeRate ;
         }   
 
         mPrevEnergy = mEnergy;
@@ -2033,6 +2030,7 @@ void LipidModel::doChangeVolumeMove(){
         mBackupLipid[index+1] = mMonomers[l[1]];
         mBackupLipid[index+2] = mMonomers[l[2]];
         moveMonomerGroup(l, 3, mChangeOfCoord);
+        mLengthOfSimBox = mLengthOfSimBox * (1+volumeChangeRate);
 
     }
 }
@@ -2040,7 +2038,7 @@ void LipidModel::doChangeVolumeMove(){
 
 
 void LipidModel::undoChangeVolumeMove(){
-    for(long j = 0;j<mNumberOfLipids.++j){
+    for(long j = 0;j<mNumberOfLipids;++j){
         for(int i=0; i<3; ++i){
             long fromCell = mMonomers[mBackupLipid[i+3*j].mID].mCellID;
             long toCell = mBackupLipid[i+3*j].mCellID;
@@ -2472,7 +2470,7 @@ void LipidModel::recover(std::ifstream& fin){
           << "       *  Backup energy (recover)  : " << std::setprecision(20)  << mEnergy << "\n" 
           << "       *  Recalculated energy 1    : " << std::setprecision(20)  << tEnergy[0]/2 << "\n"
           << "       *  Recalculated energy 2    : " << std::setprecision(20)  << tEnergy[1]   << std::endl;
-    if(abs(tEnergy[0]/2 - mEnergy) > DOUBLE_TOLERANCE || abs(tEnergy[1] - mEnergy) > DOUBLE_TOLERANCE ){
+    if(std::abs(tEnergy[0]/2 - mEnergy) > DOUBLE_TOLERANCE || std::abs(tEnergy[1] - mEnergy) > DOUBLE_TOLERANCE ){
         errorMsg("recover", "energy difference excess DOUBLE TOLERANCE!");
         exit(1);
     }
@@ -2574,7 +2572,7 @@ void LipidModel::unpack(long* longData, double* doubleData){
 
     *mOut << "       ->  check energy ... " << std::endl;
     double energy = potential();
-    if(abs(energy - mEnergy) > DOUBLE_TOLERANCE){
+    if(std::abs(energy - mEnergy) > DOUBLE_TOLERANCE){
         errorMsg("LipidModel::unpack", "energy are incorrect !");
         exit(1);
     }

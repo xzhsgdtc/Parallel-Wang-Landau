@@ -32,7 +32,7 @@
 #include "Global.h"
 #include "HistogramND.h"
 #include "RandomAccessNeighborList.h"
-
+#include <cstdlib>
 
 enum BoundaryConditionType{
     PeriodicBoundaryCondition=0
@@ -415,6 +415,14 @@ private:
      */
     bool doReptationMove(long index = -1);
     void undoReptationMove();
+    /**
+     * Perform Volume Change move for lipid
+     */
+
+     void doChangeVolumeMove();
+     void undoChangeVolumeMove();
+
+
 
     /**
     * Given index and coordinates to move according monomer

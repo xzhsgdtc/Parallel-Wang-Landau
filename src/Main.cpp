@@ -275,14 +275,17 @@ int main(int argc, char* argv[]){
      *  1: information for histogram
      *  2: information for each iteration
      */
-    std::string filename[NOF];
+    //std::string filename[NOF];
+    std::string *filename = new std::string[NOF];
+    //string *studentID = new string[numStudents]; //right
 
     filename[0] = run->addPrefix("_Track_"    + intToString(run -> iteration(),4) + ".dat");
     filename[1] = run->addPrefix("_Histogram_"  + intToString(run -> iteration(),4) + ".dat");
     filename[2] = run->addPrefix("_Iteration_"  + intToString(run -> iteration(),4) + ".dat");
 
-    std::ofstream fout[NOF];
-    
+    //std::ofstream fout[NOF];
+    std::ofstream *fout = new std::ofstream[NOF];
+
     getOutputStream(fout[0], filename[0], true);
 
     int direction(-1), myDirection(-1), totalDirection(0);
