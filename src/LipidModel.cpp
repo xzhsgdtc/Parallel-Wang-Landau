@@ -33,7 +33,8 @@ LipidModel::LipidModel(){
     mNumberOfObservables = 1;
     mMoveFraction[0] = 1;
     mMoveFraction[1] = 1;
-    mMoveFraction[2] = 1;
+    mVolumeChangeRate = 0.01;
+	mMoveFraction[2] = 1;
     for(int i=0; i<NUMBEROFSTATS; ++i){
         stat[i] = 0;
     }
@@ -2015,6 +2016,49 @@ double LipidModel::doRandomShiftMove(long index){
 
     return sqrt(r);
 }
+
+void LipidModel::doChangeVolumeMove(){
+	long index = 1;
+	//1. Generate a random number to decide how much we need to chage the volume(-1,1)
+	// If larger than 0 then the system expand, if less than 0 , the system shrinks
+	
+	double chageRate = mRandom->nextDouble(-1,1)*mVolumeChangeRate;
+	for(long i = 0; i < mNumberOfLipids; ++i){
+		long l[3] = {-1,-1,-1};
+		index = 3*i;
+		l[0] = mLipidWater[index];
+		l[1] = mLipidWater[index+1];
+		l[2] = mLipidWater[index+2];
+		if( mMonomers[l[0]].mType != P ||
+			mMonomers[l[1]].mType != H ||
+			mMonomers[l[2]].mType != H){
+			errorMsg("doVolumeChangeMove(...)", "selected lipid is not correct!");
+		}
+	//For every lipid calculate the new position based on the change rate. 
+		for(long j=0; j<mDim; j++){
+		mChangeOfCoord[j] = mMonomers[l[1]].mCoord->get(j) * changeRate;
+		}
+		mPrevEnergy = mEnergy;
+		mBackupLipid[index] = mMonomers[l[0]];
+		mBackupLipid[index+1] = mMonomers[l[1]];
+		mBackupLipid[index+2] = mMonomers[l[2]];
+		moveMonomerGroup(l,3,mChangeOfCoord);
+		mLengthOfSimBox = mLengthOfSimBox * (1+changeRate);
+
+}
+
+void LipidModel::undoChangeVolumeMove(){
+	for(long j=0; j<mNumberOfLipids; ++j){
+		for(int i=0; i<3;i++){
+			long fromCell = mMonomers[mBackupLipid[i+3*j],mID].mCellID;
+			long toCell = mBackupLipid[i+3*j].mCellID;
+			mMonomers[mBackupLipid[i+3*j].mID] = mBackupLipid[i+3*j];
+			migrate(mBackupLipid[i+3*j].mID, fromCell, toCell);
+		}
+		mEnergy = mPrevEnergy;
+	}
+}
+
 
 void LipidModel::undoRandomShiftMove(){
     for(int i=0; i<3; ++i){
