@@ -2030,16 +2030,16 @@ void LipidModel::doChangeVolumeMove(){
 	//1. Generate a random number to decide how much we need to chage the volume(-1,1)
 	// If larger than 0 then the system expand, if less than 0 , the system shrinks
 	
-	double chageRate = mRandom->nextDouble(-1,1)*mVolumeChangeRate;
+	double changeRate = mRandom->nextDouble(-1,1)*mVolumeChangeRate;
 	for(long i = 0; i < mNumberOfLipids; ++i){
 		long l[3] = {-1,-1,-1};
 		index = 3*i;
 		l[0] = mLipidWater[index];
 		l[1] = mLipidWater[index+1];
 		l[2] = mLipidWater[index+2];
-		if( mMonomers[l[0]].mType != P ||
-			mMonomers[l[1]].mType != H ||
-			mMonomers[l[2]].mType != H){
+		if( mMonomers[l[0]].mType != POLAR ||
+			mMonomers[l[1]].mType != HYDROPHOBIC ||
+			mMonomers[l[2]].mType != HYDROPHOBIC){
 			errorMsg("doVolumeChangeMove(...)", "selected lipid is not correct!");
 		}
 	//For every lipid calculate the new position based on the change rate. 
@@ -2053,6 +2053,7 @@ void LipidModel::doChangeVolumeMove(){
 		moveMonomerGroup(l,3,mChangeOfCoord);
 		mLengthOfSimBox = mLengthOfSimBox * (1+changeRate);
 
+	}
 }
 
 void LipidModel::undoChangeVolumeMove(){
@@ -2167,7 +2168,7 @@ double LipidModel::cFactor() {
             ratio = mReptationCFactor;
             break;
 	case CHANGEVOLUMEMOVE:
-	    ratio = pow(1_mVolumeChangeRate, mNumberOfMonomers);
+	    ratio = pow(1-mVolumeChangeRate, mNumberOfMonomers);
 	    break;
         default:
             errorMsg("cFacotr()", "invalid move type!");

@@ -437,8 +437,8 @@ private:
      /**
      * Perform Volume Change move for lipid
      */
-    void doVolumeChangeMove();
-    void undoVolumeChangeMove();
+    void doChangeVolumeMove();
+    void undoChangeVolumeMove();
 
 
     /**
