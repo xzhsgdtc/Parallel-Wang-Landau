@@ -44,7 +44,8 @@ enum TrialMoveType{
     DELETIONMOVE,
     NONEMOVE, 
     RANDOMSHIFTMOVE,
-    REPTATIONMOVE
+    REPTATIONMOVE,
+    CHANGEVOLUMEMOVE
 };
 
 const double DOUBLE_TOLERANCE = 1e-7;   // tolerance for double equaling
@@ -333,7 +334,8 @@ private:
                                                 //   (*) --------- 
 
     double mLargestCutoff;
-
+    
+    double mVolumeChangeRate;	    //How much the volume should change  initialy 0.01
     double mReptationCFactor;
     double mMoveFraction[3];        // [0] random local displacement [1] insertion or deletion move
     double mMaxEnergy;
@@ -431,6 +433,13 @@ private:
      */
     bool doReptationMove(long index = -1);
     void undoReptationMove();
+   
+     /**
+     * Perform Volume Change move for lipid
+     */
+    void doVolumeChangeMove();
+    void undoVolumeChangeMove();
+
 
     /**
      * Perform expansion move for the simulation box

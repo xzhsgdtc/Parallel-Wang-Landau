@@ -1701,6 +1701,11 @@ void LipidModel::doMCMove(){
 
     if(mAdaptiveMoveFlag && mMovedBinIndex >= 0 && mMoveCount[mMovedBinIndex] == ADAWL_RECALCULATE_MOVE_DISTANCE_THRESHOLD){
         updateTrialMoveDistance(mMovedBinIndex);
+    }
+
+    if(mRandom->nextDouble()<0.001){
+	mMoveProposal = CHANGEVOLUMEMOVE;
+	doChangeVolumeMove();
     } 
     
     double p = mRandom->nextDouble() ;
@@ -1801,6 +1806,9 @@ void LipidModel::undoMCMove(){
             undoReptationMove();
             stat[9]++;
             break;
+	case CHANGEVOLUMEMOVE:
+	    undoChangeVolumeMove();
+	    break;
         case NONEMOVE:
             break;
         default:
@@ -2158,6 +2166,9 @@ double LipidModel::cFactor() {
         case REPTATIONMOVE:
             ratio = mReptationCFactor;
             break;
+	case CHANGEVOLUMEMOVE:
+	    ratio = pow(1_mVolumeChangeRate, mNumberOfMonomers);
+	    break;
         default:
             errorMsg("cFacotr()", "invalid move type!");
             exit(1);
