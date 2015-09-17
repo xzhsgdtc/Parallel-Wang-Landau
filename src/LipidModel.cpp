@@ -2059,7 +2059,7 @@ void LipidModel::doChangeVolumeMove(){
 void LipidModel::undoChangeVolumeMove(){
 	for(long j=0; j<mNumberOfLipids; ++j){
 		for(int i=0; i<3;i++){
-			long fromCell = mMonomers[mBackupLipid[i+3*j],mID].mCellID;
+			long fromCell = mMonomers[mBackupLipid[i+3*j].mID].mCellID;
 			long toCell = mBackupLipid[i+3*j].mCellID;
 			mMonomers[mBackupLipid[i+3*j].mID] = mBackupLipid[i+3*j];
 			migrate(mBackupLipid[i+3*j].mID, fromCell, toCell);
