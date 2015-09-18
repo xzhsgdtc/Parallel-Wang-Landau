@@ -1,0 +1,60 @@
+
+# Parallel Frame for Wang-Landau sampling ... 
+  >> processing input parameters ... 
+     -> input file: wang_landau.input
+     -> random seed for direction selector: 928749
+     -> dimension of DOS: 1
+     -> windows each dimension: 12  
+     -> overlap each dimension: 0.8  
+     -> number of processes: 12
+     -> number of wins: 12
+     -> number of proc. per win.: 1
+     -> current procees id: 11
+     -> current win. coords.: 11 
+     -> number of inter win. comm.: 11  (11)
+        * inter win. comm. type: 0
+  >> finish sucessfully! 
+  >> building communicators ... 
+     -> intra wins. comms. ... 
+            * color of intra win. comm.: 11
+     -> inter wins. comms. ... 
+        <*>  inter cross wins. comms. 
+            * interCrossWinComm    0:      0     1 
+            * interCrossWinComm    1:      1     2 
+            * interCrossWinComm    2:      2     3 
+            * interCrossWinComm    3:      3     4 
+            * interCrossWinComm    4:      4     5 
+            * interCrossWinComm    5:      5     6 
+            * interCrossWinComm    6:      6     7 
+            * interCrossWinComm    7:      7     8 
+            * interCrossWinComm    8:      8     9 
+            * interCrossWinComm    9:      9    10 
+            * interCrossWinComm   10:     10    11 
+            * my id at interCrossWinComm   10:      1
+            * my id at interCrossWinComm   -1:     -1
+  >> finish successfully!
+
+# Wang-Landau Simulation Normal Start: 
+  >> initialize random number generator ... 
+     * random seed:    2362514
+  >> build up histogram ... 
+     => start building histogram object ! 
+        -> total number of bins: 88
+        -> histogram dimension: 1
+        -> bins each dim: 88  
+        -> weights each dim: 1  
+        -> min. each dim: -4037.5  
+        -> max. each dim: -3600  
+        -> step each dim: 4.97159  
+     => build Histogam sucessfully ! 
+  >> configuration print flag is OFF !
+  >> initialize model ... 
+     => start Iniliazation of Lipid Model ... 
+       -> pre-calculating potential parameters ... 
+       -> building cells ... 
+          * length of simulation box: 2.5 - -2.5 = 5
+          * length of cell: 2.5
+          * number of cells: 8
+          * number of cells per line: 2
+       -> adding monomers ... 
+          * monomers per line 5

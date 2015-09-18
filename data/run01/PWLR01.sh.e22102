@@ -1,0 +1,9 @@
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 10 with PID 1579 on
+node csp7.csp.uga.edu exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+Command exited with non-zero status 1
+0.06user 0.14system 0:01.22elapsed 17%CPU (0avgtext+0avgdata 5648maxresident)k
+208inputs+3624outputs (21major+9275minor)pagefaults 0swaps
