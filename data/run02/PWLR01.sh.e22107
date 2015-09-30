@@ -1,0 +1,81 @@
+[csp5:32137] *** Process received signal ***
+[csp5:32137] Signal: Segmentation fault (11)
+[csp5:32137] Signal code: Address not mapped (1)
+[csp5:32137] Failing at address: 0x6
+[csp5:32137] [ 0] /lib/x86_64-linux-gnu/libpthread.so.0(+0xf0a0) [0x2b1a381f40a0]
+[csp5:32137] [ 1] ./PWLSIM(_ZN7MonomeraSERKS_+0x21) [0x431d31]
+[csp5:32137] [ 2] ./PWLSIM(_ZN10LipidModel18doChangeVolumeMoveEv+0x2ab) [0x427b3b]
+[csp5:32137] [ 3] ./PWLSIM(_ZN10LipidModel8doMCMoveEv+0x212) [0x42f252]
+[csp5:32137] [ 4] ./PWLSIM(_ZN7WLFrameI10LipidModelE11modifyModelEv+0x91) [0x41a171]
+[csp5:32137] [ 5] ./PWLSIM(_ZN7WLFrameI10LipidModelE4initEv+0x8cd) [0x41abdd]
+[csp5:32137] [ 6] ./PWLSIM(_ZN7WLFrameI10LipidModelE8PWL_initEiPiS2_Pd+0x37f) [0x41be2f]
+[csp5:32137] [ 7] ./PWLSIM(main+0x742) [0x40fcd2]
+[csp5:32137] [ 8] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd) [0x2b1a3841fead]
+[csp5:32137] [ 9] ./PWLSIM() [0x412321]
+[csp5:32137] *** End of error message ***
+[csp4:15594] *** Process received signal ***
+[csp4:15594] Signal: Segmentation fault (11)
+[csp4:15594] Signal code: Address not mapped (1)
+[csp4:15594] Failing at address: 0x6
+[csp4:15594] [ 0] /lib/x86_64-linux-gnu/libpthread.so.0(+0xf0a0) [0x2ab7ee12f0a0]
+[csp4:15594] [ 1] ./PWLSIM(_ZN7MonomeraSERKS_+0x21) [0x431d31]
+[csp4:15594] [ 2] ./PWLSIM(_ZN10LipidModel18doChangeVolumeMoveEv+0x2ab) [0x427b3b]
+[csp4:15594] [ 3] ./PWLSIM(_ZN10LipidModel8doMCMoveEv+0x212) [0x42f252]
+[csp4:15594] [ 4] ./PWLSIM(_ZN7WLFrameI10LipidModelE11modifyModelEv+0x91) [0x41a171]
+[csp4:15594] [ 5] ./PWLSIM(_ZN7WLFrameI10LipidModelE4initEv+0x8cd) [0x41abdd]
+[csp4:15594] [ 6] ./PWLSIM(_ZN7WLFrameI10LipidModelE8PWL_initEiPiS2_Pd+0x37f) [0x41be2f]
+[csp4:15594] [ 7] ./PWLSIM(main+0x742) [0x40fcd2]
+[csp4:15594] [ 8] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd) [0x2ab7ee35aead]
+[csp4:15594] [ 9] ./PWLSIM() [0x412321]
+[csp4:15594] *** End of error message ***
+[csp4:15591] *** Process received signal ***
+[csp4:15591] Signal: Segmentation fault (11)
+[csp4:15591] Signal code: Address not mapped (1)
+[csp4:15591] Failing at address: 0x6
+[csp4:15591] [ 0] /lib/x86_64-linux-gnu/libpthread.so.0(+0xf0a0) [0x2afe86c1e0a0]
+[csp4:15591] [ 1] ./PWLSIM(_ZN7MonomeraSERKS_+0x21) [0x431d31]
+[csp4:15591] [ 2] ./PWLSIM(_ZN10LipidModel18doChangeVolumeMoveEv+0x2ab) [0x427b3b]
+[csp4:15591] [ 3] ./PWLSIM(_ZN10LipidModel8doMCMoveEv+0x212) [0x42f252]
+[csp4:15591] [ 4] ./PWLSIM(_ZN7WLFrameI10LipidModelE11modifyModelEv+0x91) [0x41a171]
+[csp4:15591] [ 5] ./PWLSIM(_ZN7WLFrameI10LipidModelE4initEv+0x8cd) [0x41abdd]
+[csp4:15591] [ 6] ./PWLSIM(_ZN7WLFrameI10LipidModelE8PWL_initEiPiS2_Pd+0x37f) [0x41be2f]
+[csp4:15591] [ 7] ./PWLSIM(main+0x742) [0x40fcd2]
+[csp4:15591] [ 8] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd) [0x2afe86e49ead]
+[csp4:15591] [ 9] ./PWLSIM() [0x412321]
+[csp4:15591] *** End of error message ***
+[csp5:32136] *** Process received signal ***
+[csp5:32136] Signal: Segmentation fault (11)
+[csp5:32136] Signal code: Address not mapped (1)
+[csp5:32136] Failing at address: 0x6
+[csp5:32136] [ 0] /lib/x86_64-linux-gnu/libpthread.so.0(+0xf0a0) [0x2b21928f90a0]
+[csp5:32136] [ 1] ./PWLSIM(_ZN7MonomeraSERKS_+0x21) [0x431d31]
+[csp5:32136] [ 2] ./PWLSIM(_ZN10LipidModel18doChangeVolumeMoveEv+0x2ab) [0x427b3b]
+[csp5:32136] [ 3] ./PWLSIM(_ZN10LipidModel8doMCMoveEv+0x212) [0x42f252]
+[csp5:32136] [ 4] ./PWLSIM(_ZN7WLFrameI10LipidModelE11modifyModelEv+0x91) [0x41a171]
+[csp5:32136] [ 5] ./PWLSIM(_ZN7WLFrameI10LipidModelE4initEv+0x8cd) [0x41abdd]
+[csp5:32136] [ 6] ./PWLSIM(_ZN7WLFrameI10LipidModelE8PWL_initEiPiS2_Pd+0x37f) [0x41be2f]
+[csp5:32136] [ 7] ./PWLSIM(main+0x742) [0x40fcd2]
+[csp5:32136] [ 8] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd) [0x2b2192b24ead]
+[csp5:32136] [ 9] ./PWLSIM() [0x412321]
+[csp5:32136] *** End of error message ***
+[csp4:15597] *** Process received signal ***
+[csp4:15597] Signal: Segmentation fault (11)
+[csp4:15597] Signal code: Address not mapped (1)
+[csp4:15597] Failing at address: 0x6
+[csp4:15597] [ 0] /lib/x86_64-linux-gnu/libpthread.so.0(+0xf0a0) [0x2b2aae2670a0]
+[csp4:15597] [ 1] ./PWLSIM(_ZN7MonomeraSERKS_+0x21) [0x431d31]
+[csp4:15597] [ 2] ./PWLSIM(_ZN10LipidModel18doChangeVolumeMoveEv+0x2ab) [0x427b3b]
+[csp4:15597] [ 3] ./PWLSIM(_ZN10LipidModel8doMCMoveEv+0x212) [0x42f252]
+[csp4:15597] [ 4] ./PWLSIM(_ZN7WLFrameI10LipidModelE11modifyModelEv+0x91) [0x41a171]
+[csp4:15597] [ 5] ./PWLSIM(_ZN7WLFrameI10LipidModelE4initEv+0x8cd) [0x41abdd]
+[csp4:15597] [ 6] ./PWLSIM(_ZN7WLFrameI10LipidModelE8PWL_initEiPiS2_Pd+0x37f) [0x41be2f]
+[csp4:15597] [ 7] ./PWLSIM(main+0x742) [0x40fcd2]
+[csp4:15597] [ 8] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd) [0x2b2aae492ead]
+[csp4:15597] [ 9] ./PWLSIM() [0x412321]
+[csp4:15597] *** End of error message ***
+--------------------------------------------------------------------------
+mpirun noticed that process rank 11 with PID 32137 on node csp5.csp.uga.edu exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+Command exited with non-zero status 139
+0.00user 0.01system 0:01.25elapsed 1%CPU (0avgtext+0avgdata 2260maxresident)k
+0inputs+24outputs (0major+1034minor)pagefaults 0swaps
