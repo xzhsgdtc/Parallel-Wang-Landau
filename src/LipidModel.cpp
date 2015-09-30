@@ -1703,7 +1703,7 @@ void LipidModel::doMCMove(){
         updateTrialMoveDistance(mMovedBinIndex);
     } 
     
-    if(mRandom->nextDouble()<0.01){
+    if(mRandom->nextDouble()<0.001){
     mMoveProposal = CHANGEVOLUMEMOVE;
     *mOut << "    ----Start ChangeVolumeMOve \n" << std::endl;
 
@@ -2001,27 +2001,42 @@ void LipidModel::doChangeVolumeMove(){
     long index = 1;
     //1. Generate a random number to decide how much we need to chage the volume(-1,1)
     // If larger than 0 then the system expand, if less than 0 , the system shrinks
-    
+    //*mOut << "    ----In doChangeVolumeMOve \n" << std::endl;
+
     double changeRate = mRandom->nextDouble(-1,1)*mVolumeChangeRate;
+        //*mOut << "    ----change Rate is  " << changeRate << "\n" << std::endl;
+
     for(long i = 0; i < mNumberOfLipids; ++i){
+
         long l[3] = {-1,-1,-1};
         index = 3*i;
         l[0] = mLipidWater[index];
         l[1] = mLipidWater[index+1];
         l[2] = mLipidWater[index+2];
+
+        //*mOut << "    ----the l0,l1,l2 is  " << l[0]<<l[1]<<l[2] << "\n"<< std::endl;
+        //*mOut << "    ----the type of l0,l1,l2 is  "
+        // <<mMonomers[l[0]].mType <<mMonomers[l[1]].mType<<mMonomers[l[2]].mType << "\n"<< std::endl;
+
         if( mMonomers[l[0]].mType != POLAR ||
             mMonomers[l[1]].mType != HYDROPHOBIC ||
             mMonomers[l[2]].mType != HYDROPHOBIC){
+            *mOut << "    ---- selected lipid is not correct!\n" << std::endl;
+
             errorMsg("doVolumeChangeMove(...)", "selected lipid is not correct!");
         }
     //For every lipid calculate the new position based on the change rate. 
+
         for(long j=0; j<mDim; j++){
+
         mChangeOfCoord[j] = mMonomers[l[1]].mCoord->get(j) * changeRate;
+        //*mOut << "    ----mChangeOfCoord " << j << mChangeOfCoord[j] << "\n" << std::endl;
         }
+
         mPrevEnergy = mEnergy;
-        mBackupLipid[index] = mMonomers[l[0]];
-        mBackupLipid[index+1] = mMonomers[l[1]];
-        mBackupLipid[index+2] = mMonomers[l[2]];
+        mBackupList[index] = mMonomers[l[0]];
+        mBackupList[index+1] = mMonomers[l[1]];
+        mBackupList[index+2] = mMonomers[l[2]];
         moveMonomerGroup(l,3,mChangeOfCoord);
         mLengthOfSimBox = mLengthOfSimBox * (1+changeRate);
 
@@ -2031,10 +2046,10 @@ void LipidModel::doChangeVolumeMove(){
 void LipidModel::undoChangeVolumeMove(){
     for(long j=0; j<mNumberOfLipids; ++j){
         for(int i=0; i<3;i++){
-            long fromCell = mMonomers[mBackupLipid[i+3*j].mID].mCellID;
-            long toCell = mBackupLipid[i+3*j].mCellID;
-            mMonomers[mBackupLipid[i+3*j].mID] = mBackupLipid[i+3*j];
-            migrate(mBackupLipid[i+3*j].mID, fromCell, toCell);
+            long fromCell = mMonomers[mBackupList[i+3*j].mID].mCellID;
+            long toCell = mBackupList[i+3*j].mCellID;
+            mMonomers[mBackupList[i+3*j].mID] = mBackupList[i+3*j];
+            migrate(mBackupList[i+3*j].mID, fromCell, toCell);
         }
         mEnergy = mPrevEnergy;
     }

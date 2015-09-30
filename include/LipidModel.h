@@ -289,6 +289,8 @@ private:
     MonomerIndex* mMonomerIndexes;  // helper that speed up the access of the mMonomers in boxes
     Monomer mBackupMonomer;         // backup monomer for random displacement move
     Monomer mBackupLipid[3];           // backup monomers of a lipid for random shift move
+    Monomer mBackupList[3000];           // backup a list ofmonomers of a lipid for random shift move
+
     TrialMoveType mMoveProposal;    // trail move proposal, helper for calculating the correction factor
     BoundaryConditionType mBoundaryCondition;
 
