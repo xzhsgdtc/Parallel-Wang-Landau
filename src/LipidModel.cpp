@@ -1705,12 +1705,12 @@ void LipidModel::doMCMove(){
     
     if(mRandom->nextDouble()<0.001){
     mMoveProposal = CHANGEVOLUMEMOVE;
-    *mOut << "    ----Start ChangeVolumeMOve \n" << std::endl;
+    *mOut << "    --Start ChangeVolumeMOve \n" << std::endl;
 
     doChangeVolumeMove();
     *mOut << "    ----Length of Simulation box" <<mLengthOfSimBox<<"  \n" << std::endl;
-    *mOut << "    ----Density " <<mDensity<<"  \n" << std::endl;
-    *mOut << "    ---- Product of two " <<mDensity *mLengthOfSimBox <<"  \n" << std::endl;
+    //*mOut << "    ----Density " <<mDensity<<"  \n" << std::endl;
+    //*mOut << "    ---- Product of two " <<mDensity *mLengthOfSimBox <<"  \n" << std::endl;
 
     } 
     
@@ -2035,13 +2035,27 @@ void LipidModel::doChangeVolumeMove(){
         for(long j=0; j<mDim; j++){
 
         mChangeOfCoord[j] = mMonomers[l[1]].mCoord->get(j) * changeRate;
+        if( i ==5){
+            *mOut << "    *** Coord change   "  <<      mChangeOfCoord[j] << "\n" << std::endl;
+
+        }
         }
 
         mPrevEnergy = mEnergy;
         mBackupList[index] = mMonomers[l[0]];
         mBackupList[index+1] = mMonomers[l[1]];
         mBackupList[index+2] = mMonomers[l[2]];
-        moveMonomerGroup(l,3,mChangeOfCoord);
+
+        if(i ==5){
+        *mOut << "    ---- Coord Before "  <<      mMonomers[l[0]].mCoord->get(0) << "\n" << std::endl;
+
+                moveMonomerGroup(l,3,mChangeOfCoord);
+
+        *mOut << "    ----Coord After "  <<  mMonomers[l[0]].mCoord->get(0)  << "\n" << std::endl;
+
+        }
+        else{
+        moveMonomerGroup(l,3,mChangeOfCoord);}
 
     }
 
