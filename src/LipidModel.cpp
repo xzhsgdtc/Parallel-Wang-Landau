@@ -1708,6 +1708,10 @@ void LipidModel::doMCMove(){
     *mOut << "    ----Start ChangeVolumeMOve \n" << std::endl;
 
     doChangeVolumeMove();
+    *mOut << "    ----Length of Simulation box" <<mLengthOfSimBox<<"  \n" << std::endl;
+    *mOut << "    ----Density " <<mDensity<<"  \n" << std::endl;
+    *mOut << "    ---- Product of two " <<mDensity *mLengthOfSimBox <<"  \n" << std::endl;
+
     } 
     
 
@@ -2005,6 +2009,7 @@ void LipidModel::doChangeVolumeMove(){
 
     double changeRate = mRandom->nextDouble(-1,1)*mVolumeChangeRate;
         //*mOut << "    ----change Rate is  " << changeRate << "\n" << std::endl;
+        *mOut << "    ----changeRate "  << changeRate<< "\n" << std::endl;
 
     for(long i = 0; i < mNumberOfLipids; ++i){
 
@@ -2030,7 +2035,6 @@ void LipidModel::doChangeVolumeMove(){
         for(long j=0; j<mDim; j++){
 
         mChangeOfCoord[j] = mMonomers[l[1]].mCoord->get(j) * changeRate;
-        //*mOut << "    ----mChangeOfCoord " << j << mChangeOfCoord[j] << "\n" << std::endl;
         }
 
         mPrevEnergy = mEnergy;
@@ -2038,9 +2042,12 @@ void LipidModel::doChangeVolumeMove(){
         mBackupList[index+1] = mMonomers[l[1]];
         mBackupList[index+2] = mMonomers[l[2]];
         moveMonomerGroup(l,3,mChangeOfCoord);
-        mLengthOfSimBox = mLengthOfSimBox * (1+changeRate);
 
     }
+
+    mLengthOfSimBox = mLengthOfSimBox * (1+changeRate);
+    mDensity = mDensity/(1+changeRate);
+
 }
 
 void LipidModel::undoChangeVolumeMove(){
