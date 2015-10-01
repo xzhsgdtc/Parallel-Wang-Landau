@@ -2019,10 +2019,6 @@ void LipidModel::doChangeVolumeMove(){
         l[1] = mLipidWater[index+1];
         l[2] = mLipidWater[index+2];
 
-        //*mOut << "    ----the l0,l1,l2 is  " << l[0]<<l[1]<<l[2] << "\n"<< std::endl;
-        //*mOut << "    ----the type of l0,l1,l2 is  "
-        // <<mMonomers[l[0]].mType <<mMonomers[l[1]].mType<<mMonomers[l[2]].mType << "\n"<< std::endl;
-
         if( mMonomers[l[0]].mType != POLAR ||
             mMonomers[l[1]].mType != HYDROPHOBIC ||
             mMonomers[l[2]].mType != HYDROPHOBIC){
@@ -2033,12 +2029,7 @@ void LipidModel::doChangeVolumeMove(){
     //For every lipid calculate the new position based on the change rate. 
 
         for(long j=0; j<mDim; j++){
-
         mChangeOfCoord[j] = mMonomers[l[1]].mCoord->get(j) * changeRate;
-        if( i ==5){
-            *mOut << "    *** Coord change   "  <<      mChangeOfCoord[j] << "\n" << std::endl;
-
-        }
         }
 
         mPrevEnergy = mEnergy;
@@ -2046,16 +2037,7 @@ void LipidModel::doChangeVolumeMove(){
         mBackupList[index+1] = mMonomers[l[1]];
         mBackupList[index+2] = mMonomers[l[2]];
 
-        if(i ==5){
-        *mOut << "    ---- Coord Before "  <<      mMonomers[l[0]].mCoord->get(0) << "\n" << std::endl;
-
-                moveMonomerGroup(l,3,mChangeOfCoord);
-
-        *mOut << "    ----Coord After "  <<  mMonomers[l[0]].mCoord->get(0)  << "\n" << std::endl;
-
-        }
-        else{
-        moveMonomerGroup(l,3,mChangeOfCoord);}
+        moveMonomerGroup(l,3,mChangeOfCoord);
 
     }
 
