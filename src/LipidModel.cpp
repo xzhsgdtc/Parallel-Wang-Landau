@@ -2011,8 +2011,8 @@ void LipidModel::doChangeVolumeMove(){
         //*mOut << "    ----change Rate is  " << changeRate << "\n" << std::endl;
         *mOut << "    ----changeRate "  << changeRate<< "\n" << std::endl;
 
+// Move all Lipids accroding to it's position
     for(long i = 0; i < mNumberOfLipids; ++i){
-
         long l[3] = {-1,-1,-1};
         index = 3*i;
         l[0] = mLipidWater[index];
@@ -2031,14 +2031,40 @@ void LipidModel::doChangeVolumeMove(){
         for(long j=0; j<mDim; j++){
         mChangeOfCoord[j] = mMonomers[l[1]].mCoord->get(j) * changeRate;
         }
-
         mPrevEnergy = mEnergy;
         mBackupList[index] = mMonomers[l[0]];
         mBackupList[index+1] = mMonomers[l[1]];
-        mBackupList[index+2] = mMonomers[l[2]];
+        mBackupList[index+2] = mMonomers[l[2]]; 
 
         moveMonomerGroup(l,3,mChangeOfCoord);
 
+    }
+
+        *mOut << "    -- Start test Monomer type "  << changeRate<< "\n" << std::endl;
+    const int mNumberOfWater = mNumberOfMonomers - 3*mNumberOfLipids; 
+
+// Move all the water
+    long l = -1;
+    for(long i = 0; i < mNumberOfWater; ++i ){
+
+        l = mLipidWater[3*mNumberOfLipids+i];
+       if(mMonomers[l].mType != 0){ 
+        *mOut << "    ---- Wrong , not water, The "  << i <<"th monomer's type is " <<  mMonomers[l].mType<< "\n" << std::endl;
+       }
+       else{
+        for(int j=0; j<mDim; j++){
+        mChangeOfCoord[j] = mMonomers[l].mCoord->get(j) * changeRate;
+        }
+        *mOut << "    ---- Move rate "  <<  mChangeOfCoord[0]<< "\n" << std::endl;
+
+        *mOut << "    -----Cordinate x before move  "  << mMonomers[l].mCoord->get(0)<< "\n" << std::endl;
+
+        mPrevEnergy = mEnergy;
+        mBackupList[3*mNumberOfLipids+i] = mMonomers[l];
+        moveMonomer(l,mChangeOfCoord);
+        *mOut << "    -----Cordinate x after move  "  << mMonomers[l].mCoord->get(0)<< "\n" << std::endl;
+
+       }
     }
 
     mLengthOfSimBox = mLengthOfSimBox * (1+changeRate);
